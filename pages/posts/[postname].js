@@ -27,9 +27,14 @@ export default function BlogPost({ siteTitle, frontmatter, markdownBody }) {
 export async function getStaticProps({ ...ctx }) {
   const { postname } = ctx.params
 
-  const content = await import(`../../posts/${postname}.md`)
-  const { title } = await import(`../../siteconfig.json`)
+  const content = ((context) => {
+    const values = context.keys().map(context)
+
+    return values.find((value) => matter(value.default).data.slug === postname)
+  })(require.context('../../posts', true, /\.md$/))
+
   const data = matter(content.default)
+  const { title } = await import(`../../siteconfig.json`)
 
   return {
     props: {
@@ -43,17 +48,15 @@ export async function getStaticProps({ ...ctx }) {
 export async function getStaticPaths() {
   const blogSlugs = ((context) => {
     const keys = context.keys()
-    const data = keys.map((key, index) => {
-      let slug = key.replace(/^.*[\\\/]/, '').slice(0, -3)
+    const values = keys.map(context)
 
-      return slug
+    return keys.map((key, index) => {
+      const frontMatter = matter(values[index].default)
+      return frontMatter.data.slug
     })
-    return data
   })(require.context('../../posts', true, /\.md$/))
 
-  const paths = blogSlugs.map((slug) => `/post/${slug}`)
-
-  console.log('paths', paths)
+  const paths = blogSlugs.map((slug) => `/posts/${slug}`)
 
   return {
     paths,

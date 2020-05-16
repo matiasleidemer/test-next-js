@@ -23,23 +23,27 @@ export async function getStaticProps() {
     const values = keys.map(context)
 
     return keys.map((key, index) => {
-      const slug = key.replace(/^.*[\\\/]/, '').slice(0, -3)
       const value = values[index]
       const document = matter(value.default)
 
       return {
         frontmatter: document.data,
         markdownBody: document.content,
-        slug,
+        slug: document.data.slug,
       }
     })
   })(require.context('../posts', true, /\.md$/))
 
   return {
     props: {
-      posts,
+      posts: sortPosts(posts),
       title: configData.default.title,
       description: configData.default.description,
     },
   }
 }
+
+const sortPosts = (posts) =>
+  posts.sort(
+    (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+  )
