@@ -35,8 +35,6 @@ export async function getStaticProps() {
     })
   })(require.context('../posts', true, /\.md$/))
 
-  console.log('posts', posts)
-
   return {
     props: {
       posts,
