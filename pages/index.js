@@ -1,6 +1,5 @@
 import matter from 'gray-matter'
 
-import Layout from 'components/Layout'
 import PostList from 'components/PostList'
 
 const Index = ({ posts, title, description, ...props }) => (
@@ -27,7 +26,7 @@ export async function getStaticProps() {
     const keys = context.keys()
     const values = keys.map(context)
 
-    return keys.map((key, index) => {
+    return keys.map((_, index) => {
       const value = values[index]
       const document = matter(value.default)
 

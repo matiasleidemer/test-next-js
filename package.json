@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^2.2.0",
+    "@tailwindcss/typography": "^0.2.0",
     "autoprefixer": "^9.8.0",
     "gray-matter": "^4.0.2",
     "next": "9.4.0",
