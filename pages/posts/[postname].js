@@ -1,23 +1,21 @@
-import Link from 'next/link'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
-import readingTime from 'lib/readingTime'
+import { readingTime, formatDate } from 'lib'
 import PostLayout from 'components/PostLayout'
 import CodeBlock from 'components/CodeBlock'
 
-export default function BlogPost({
-  siteTitle,
-  frontmatter,
-  markdownBody,
-  readingTime,
-}) {
+export default function BlogPost({ frontmatter, markdownBody, readingTime }) {
   if (!frontmatter) return <></>
+
   return (
-    <PostLayout pageTitle={`${siteTitle} | ${frontmatter.title}`}>
-      <article className="prose max-w-none">
-        <h1 className="text-center">{frontmatter.title}</h1>
-        <span>{readingTime}</span>
+    <PostLayout pageTitle={frontmatter.title}>
+      <article className="pt-0 prose md:pt-32">
+        <h1>{frontmatter.title}</h1>
+        <time datetime={frontmatter.date} pubdate="pubdate"></time>
+        <span className="text-sm font-thin">
+          {formatDate(new Date(frontmatter.date))} • {readingTime} read
+        </span>
         <div>
           <ReactMarkdown
             source={markdownBody}
@@ -39,11 +37,9 @@ export async function getStaticProps({ ...ctx }) {
   })(require.context('../../posts', true, /\.md$/))
 
   const data = matter(content.default)
-  const { title } = await import(`../../siteconfig.json`)
 
   return {
     props: {
-      siteTitle: title,
       frontmatter: data.data,
       markdownBody: data.content,
       readingTime: readingTime(data.content),

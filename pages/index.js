@@ -3,15 +3,18 @@ import matter from 'gray-matter'
 import PostList from 'components/PostList'
 
 const Index = ({ posts, title, description, ...props }) => (
-  <div className="container flex flex-col items-center content-center max-w-full px-4 mx-auto border-2 border-red-500 ">
-    <img
-      src="https://pbs.twimg.com/profile_images/1212795685151674368/im8jhmJP_400x400.jpg"
-      className="w-32 h-32 p-2 mx-auto mt-8 border-4 border-gray-800 rounded-full lg:mt-32"
-    ></img>
-    <h1 className="text-3xl font-extrabold">MATIAS LEIDEMER</h1>
-    <p className="mx-1 text-lg font-thin text-center">{description}</p>
-
-    <div className="py-8">
+  <div className="container flex flex-col items-center content-center max-w-full px-4 mx-auto">
+    <div className="mt-8 text-center lg:mt-32">
+      <img
+        src="https://pbs.twimg.com/profile_images/1212795685151674368/im8jhmJP_400x400.jpg"
+        className="w-32 h-32 p-2 mx-auto border-4 border-gray-800 rounded-full "
+      ></img>
+      <h1 className="text-3xl font-extrabold">MATIAS LEIDEMER</h1>
+      <p className="mx-1 text-lg font-thin text-center text-gray-600">
+        {description}
+      </p>
+    </div>
+    <div className="my-12">
       <PostList posts={posts} />
     </div>
   </div>

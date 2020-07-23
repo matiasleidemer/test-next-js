@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function PostLayout({ children, pageTitle, ...props }) {
   return (
@@ -10,7 +11,12 @@ export default function PostLayout({ children, pageTitle, ...props }) {
 
       <div className="container max-w-screen-sm p-6 mx-auto">
         <section>{children}</section>
-        <footer>Built by me!</footer>
+        <hr className="my-8" />
+        <footer>
+          <Link href="/">
+            <a>Back to blog</a>
+          </Link>
+        </footer>
       </div>
     </>
   )
