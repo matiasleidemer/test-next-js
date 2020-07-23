@@ -2,16 +2,22 @@ import Link from 'next/link'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
+import readingTime from 'lib/readingTime'
 import PostLayout from 'components/PostLayout'
 import CodeBlock from 'components/CodeBlock'
 
-export default function BlogPost({ siteTitle, frontmatter, markdownBody }) {
+export default function BlogPost({
+  siteTitle,
+  frontmatter,
+  markdownBody,
+  readingTime,
+}) {
   if (!frontmatter) return <></>
-
   return (
     <PostLayout pageTitle={`${siteTitle} | ${frontmatter.title}`}>
       <article className="prose max-w-none">
-        <h1>{frontmatter.title}</h1>
+        <h1 className="text-center">{frontmatter.title}</h1>
+        <span>{readingTime}</span>
         <div>
           <ReactMarkdown
             source={markdownBody}
@@ -40,6 +46,7 @@ export async function getStaticProps({ ...ctx }) {
       siteTitle: title,
       frontmatter: data.data,
       markdownBody: data.content,
+      readingTime: readingTime(data.content),
     },
   }
 }
