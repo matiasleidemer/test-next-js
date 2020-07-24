@@ -5,11 +5,11 @@ const PostLink = ({ post }) => (
   <li>
     <div className="flex flex-col py-4 leading-6">
       <Link href="/posts/[postname]" as={`/posts/${post.slug}`}>
-        <a className="text-xl font-semibold text-gray-700">
+        <a className="text-xl font-semibold text-gray-900">
           {post.frontmatter.title}
         </a>
       </Link>
-      <span className="text-sm font-thin text-gray-600">
+      <span className="text-sm font-thin text-gray-700">
         {formatDate(new Date(post.frontmatter.date))}
       </span>
     </div>

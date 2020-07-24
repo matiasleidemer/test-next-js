@@ -6,7 +6,7 @@ export default () => (
     stroke="currentColor"
     fill="none"
     stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinejoin="round"
   >
     <path stroke="none" d="M0 0h24v24H0z" />
     <polyline points="5 12 3 12 12 3 21 12 19 12" />

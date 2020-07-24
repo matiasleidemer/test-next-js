@@ -6,7 +6,7 @@ export default () => (
     stroke="currentColor"
     fill="none"
     stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinejoin="round"
   >
     <path stroke="none" d="M0 0h24v24H0z" />
     <circle cx="5" cy="19" r="1" />
