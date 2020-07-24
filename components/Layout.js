@@ -11,7 +11,7 @@ export default function Layout({ children, pageTitle, description, ...props }) {
       <section className="container max-w-screen-sm mx-auto">
         <div className="flex flex-col items-center max-w-screen-sm px-4 mx-auto">
           <div className="w-full">
-            <div className="mt-8 text-center lg:mt-32">
+            <div className="mt-8 text-center">
               <img
                 src="https://pbs.twimg.com/profile_images/1212795685151674368/im8jhmJP_400x400.jpg"
                 className="w-32 h-32 p-2 mx-auto border-4 border-gray-800 rounded-full"
