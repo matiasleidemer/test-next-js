@@ -3,11 +3,13 @@ import { formatDate } from 'lib'
 
 const PostLink = ({ post }) => (
   <li>
-    <div className="flex flex-col py-3 leading-6 text-gray-800">
+    <div className="flex flex-col py-4 leading-6">
       <Link href="/posts/[postname]" as={`/posts/${post.slug}`}>
-        <a className="text-xl font-extrabold">{post.frontmatter.title}</a>
+        <a className="text-xl font-semibold text-gray-700">
+          {post.frontmatter.title}
+        </a>
       </Link>
-      <span className="text-sm font-thin">
+      <span className="text-sm font-thin text-gray-600">
         {formatDate(new Date(post.frontmatter.date))}
       </span>
     </div>

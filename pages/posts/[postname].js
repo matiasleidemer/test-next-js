@@ -12,7 +12,7 @@ export default function BlogPost({ frontmatter, markdownBody, readingTime }) {
     <PostLayout pageTitle={frontmatter.title}>
       <article className="pt-0 prose md:pt-32">
         <h1>{frontmatter.title}</h1>
-        <time datetime={frontmatter.date} pubdate="pubdate"></time>
+        <time dateTime={frontmatter.date} pubdate="pubdate"></time>
         <span className="text-sm font-thin">
           {formatDate(new Date(frontmatter.date))} • {readingTime} read
         </span>
