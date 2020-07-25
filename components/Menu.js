@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Github, Twitter, Rss, Mail, Id, Home } from 'components/icons'
+import { Github, Twitter, Rss } from 'components/icons'
 import Briefcase from './icons/Briefcase'
 
 const IconLink = ({ children }) => (
@@ -9,20 +9,6 @@ const IconLink = ({ children }) => (
 export default function Menu() {
   return (
     <div className="flex text-lg text-gray-700 justify-evenly">
-      <IconLink>
-        <Link href="/">
-          <a>
-            <Home />
-          </a>
-        </Link>
-      </IconLink>
-      <IconLink>
-        <Link href="/about">
-          <a>
-            <Id />
-          </a>
-        </Link>
-      </IconLink>
       <IconLink>
         <a href="https://www.linkedin.com/in/matiasleidemer/" alt="Linkedin">
           <Briefcase />
@@ -36,11 +22,6 @@ export default function Menu() {
       <IconLink>
         <a href="https://www.twitter.com/matiasleidemer" alt="Twitter">
           <Twitter />
-        </a>
-      </IconLink>
-      <IconLink>
-        <a href="mailto:matiasleidemer@gmail.com" alt="E-mail">
-          <Mail />
         </a>
       </IconLink>
       <IconLink>

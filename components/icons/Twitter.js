@@ -5,7 +5,7 @@ export default () => (
     viewBox="0 0 24 24"
     stroke="currentColor"
     fill="none"
-    stroke-linecap="round"
+    strokeLinecap="round"
     strokeLinejoin="round"
   >
     <path stroke="none" d="M0 0h24v24H0z" />
