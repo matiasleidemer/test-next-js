@@ -1,45 +1,34 @@
-import matter from 'gray-matter'
-
-import PostList from 'components/PostList'
 import Layout from 'components/Layout'
+import Menu from 'components/Menu'
 
-const Index = ({ posts }) => (
-  <Layout>
-    <PostList posts={posts} />
-  </Layout>
-)
-
-export default Index
-
-export async function getStaticProps() {
-  const configData = await import(`../siteconfig.json`)
-
-  const posts = ((context) => {
-    const keys = context.keys()
-    const values = keys.map(context)
-
-    return keys.map((_, index) => {
-      const value = values[index]
-      const document = matter(value.default)
-
-      return {
-        frontmatter: document.data,
-        markdownBody: document.content,
-        slug: document.data.slug,
-      }
-    })
-  })(require.context('../posts', true, /\.md$/))
-
-  return {
-    props: {
-      posts: sortPosts(posts),
-      title: configData.default.title,
-      description: configData.default.description,
-    },
-  }
+const About = ({ title, description, ...props }) => {
+  return (
+    <>
+      <Layout>
+        <Menu />
+        <article className="prose">
+          <p>Hello.</p>
+          <p>
+            My name is Matias Leidemer, I am a software developer based in Novo
+            Hamburgo, Brazil. I am currently looking for opportunities, if you
+            want to chat, please drop me line: matiasleidemer at gmail.
+          </p>
+          <p>
+            I like to write code that writes code, listen to music, watch movies
+            and all kinds of animals.
+          </p>
+          <p>
+            This page is powered by Gatsby, with the lumen theme and hosted
+            using Netlify.
+          </p>
+          <p>
+            If you feel like talking to me, you can use one of the social links
+            at the left of this page.
+          </p>
+        </article>
+      </Layout>
+    </>
+  )
 }
 
-const sortPosts = (posts) =>
-  posts.sort(
-    (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-  )
+export default About

@@ -1,7 +1,6 @@
-export default () => (
+const Rss = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="icon icon-tabler icon-tabler-rss"
     viewBox="0 0 24 24"
     stroke="currentColor"
     fill="none"
@@ -14,3 +13,5 @@ export default () => (
     <path d="M4 11a9 9 0 0 1 9 9" />
   </svg>
 )
+
+export default Rss

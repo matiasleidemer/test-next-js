@@ -1,7 +1,6 @@
-export default () => (
+const Mail = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="icon icon-tabler icon-tabler-mail"
     viewBox="0 0 24 24"
     stroke="currentColor"
     fill="none"
@@ -13,3 +12,5 @@ export default () => (
     <polyline points="3 7 12 13 21 7" />
   </svg>
 )
+
+export default Mail

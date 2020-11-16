@@ -1,7 +1,6 @@
-export default () => (
+const Id = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="icon icon-tabler icon-tabler-info-square"
     viewBox="0 0 24 24"
     stroke="currentColor"
     fill="none"
@@ -14,3 +13,5 @@ export default () => (
     <polyline points="11 12 12 12 12 16 13 16" />
   </svg>
 )
+
+export default Id

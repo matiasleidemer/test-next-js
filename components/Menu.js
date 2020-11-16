@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Github, Twitter, Rss } from 'components/icons'
 import Briefcase from './icons/Briefcase'
 
