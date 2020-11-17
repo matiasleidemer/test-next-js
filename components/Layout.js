@@ -13,7 +13,6 @@ export default function Layout({ children, pageTitle, description, ...props }) {
         <div className="flex flex-col items-center">
           <div className="w-full">
             <Headline />
-            <div className="my-12">{/* <Menu /> */}</div>
             <div className="my-12">{children}</div>
           </div>
         </div>

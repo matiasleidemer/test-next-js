@@ -7,7 +7,7 @@ const IconLink = ({ children }) => (
 
 export default function Menu() {
   return (
-    <div className="flex text-lg text-gray-700 justify-evenly">
+    <div className="flex text-lg text-gray-700 justify-evenly mt-12">
       <IconLink>
         <a href="https://www.linkedin.com/in/matiasleidemer/" alt="Linkedin">
           <Briefcase />
@@ -21,11 +21,6 @@ export default function Menu() {
       <IconLink>
         <a href="https://www.twitter.com/matiasleidemer" alt="Twitter">
           <Twitter />
-        </a>
-      </IconLink>
-      <IconLink>
-        <a href="https://www.twitter.com/matiasleidemer" alt="Rss">
-          <Rss />
         </a>
       </IconLink>
     </div>
